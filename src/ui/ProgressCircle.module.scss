@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  width: 230px;
+  max-width: 100%;
+}
+
+.svg {
+  transform: rotate(-90deg);
+}
+
+.bg {
+  stroke: rgba(#fafcfc, 0.1);
+}
+
+.progress {
+  stroke: #007aff;
+  transition: stroke-dashoffset 0.4s linear;
+  stroke-linecap: round;
+}
+
+.glow {
+  stroke: #007aff;
+  animation: pulse 1s ease-in-out infinite;
+  transition: stroke-dashoffset 0.4s linear;
+  stroke-linecap: round;
+}
+
+.stopped {
+  animation: none;
+  opacity: 1 !important;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
