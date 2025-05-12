@@ -1,0 +1,209 @@
+// @font-face {
+//   font-family: Hatton;
+//   src: url('../fonts/Hatton-Medium.ttf');
+//   font-weight: 500;
+// }
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  transition: all 0.15s ease-in-out;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #121212;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #fff;
+  overflow-x: hidden;
+  font-size: 1.6rem;
+  min-height: 100dvh;
+  background-color: #121212;
+  position: relative;
+  z-index: -9999;
+}
+
+/* ************************** GENERAL ******************************* */
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 44rem;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 1.6rem;
+  overflow: hidden;
+  min-height: 100dvh;
+}
+
+/* ************************** STEP 1 ******************************* */
+
+.step-1 {
+  .bg-blur {
+    position: absolute;
+    width: 40.6rem;
+    height: 40.6rem;
+    border-radius: 40.6rem;
+    opacity: 0.4;
+    background: #ff3b30;
+    mix-blend-mode: plus-lighter;
+    filter: blur(100px);
+    top: -30.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  header {
+    margin-top: 2.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      img {
+        height: 2rem;
+      }
+
+      span {
+        color: #fafcfc;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 1.68rem */
+      }
+    }
+
+    h1 {
+      color: #fafcfc;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 3.2rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%; /* 3.84rem */
+    }
+  }
+
+  main {
+    width: 100%;
+    border-radius: 2rem;
+    background-color: red;
+    overflow: hidden;
+    padding: 8px 8px 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.2rem;
+
+    background: linear-gradient(
+      180deg,
+      rgba(31, 38, 46, 0) 0%,
+      rgba(31, 38, 46, 0.6) 100%
+    );
+
+    img {
+      width: 100%;
+      aspect-ratio: 3/2;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 0 8px;
+
+      li {
+        color: #a2b7bf;
+        font-family: Poppins;
+        font-size: 1.6rem;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 150%; /* 2.4rem */
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 2.4rem 1.6rem 2.4rem;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, #121212 31.35%);
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      img {
+        height: 2.8rem;
+      }
+
+      span {
+        color: #fafcfc;
+        text-align: right;
+        font-family: Poppins;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 2.24rem */
+      }
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      display: flex;
+      height: 5.6rem;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1.4rem;
+      background: #007aff;
+      color: #fafcfc;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      width: 100%;
+    }
+  }
+}
