@@ -1,0 +1,46 @@
+// @font-face {
+//   font-family: Hatton;
+//   src: url('../fonts/Hatton-Medium.ttf');
+//   font-weight: 500;
+// }
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  transition: all 0.15s ease-in-out;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: black;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #fff;
+  overflow-x: hidden;
+  font-size: 1.6rem;
+}
+
+/* *************************************** GENERAL ***************************************** */
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.container {
+  max-width: 44rem;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 1.6rem;
+  overflow: hidden;
+}
