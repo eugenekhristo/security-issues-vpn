@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import BgBlur from '../ui/BgBlur';
 
 function Step1() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ function Step1() {
 
   return (
     <div className="container step-1">
-      <div className="bg-blur" />
+      <BgBlur backgroundColor={'#FF3B30'} />
 
       <header>
         <div className="top">
@@ -17,7 +18,9 @@ function Step1() {
           <span>Detected by AI Safe Internet Association</span>
         </div>
         <h1>
-          Your connection <br /> is not secure!
+          Your connection
+          <br />
+          is not secure!
         </h1>
       </header>
 

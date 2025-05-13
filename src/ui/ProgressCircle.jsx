@@ -1,40 +1,51 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './ProgressCircle.module.scss';
 
-const ProgressCircle = () => {
+function ProgressCircle({
+  size = 230,
+  strokeWidth = 28.75,
+  duration = 12000,
+  start = true,
+  onProgress,
+  onComplete,
+}) {
   const [progress, setProgress] = useState(0);
-  const [completed, setCompleted] = useState(false);
-  const requestRef = useRef();
+  const [done, setDone] = useState(false);
+  const reqRef = useRef();
   const startRef = useRef();
 
-  const duration = 12000;
-  const strokeWidth = 28.75;
-  const size = 230;
   const center = size / 2;
   const radius = center - strokeWidth / 2;
   const circumference = 2 * Math.PI * radius;
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 2);
 
-  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-
-  const animate = useCallback((ts) => {
-    if (!startRef.current) startRef.current = ts;
-    const elapsed = ts - startRef.current;
-    const t = Math.min(elapsed / duration, 1);
-    const v = easeOutCubic(t);
-    setProgress(Math.floor(v * 100));
-    if (elapsed < duration) {
-      requestRef.current = requestAnimationFrame(animate);
-    } else {
-      setCompleted(true);
-    }
-  }, []);
+  const animate = useCallback(
+    (ts) => {
+      if (!startRef.current) startRef.current = ts;
+      const elapsed = ts - startRef.current;
+      const t = Math.min(elapsed / duration, 1);
+      const v = easeOutCubic(t);
+      const pct = Math.floor(v * 100);
+      setProgress(pct);
+      onProgress?.(pct);
+      if (elapsed < duration) {
+        reqRef.current = requestAnimationFrame(animate);
+      } else {
+        setDone(true);
+        onComplete?.();
+      }
+    },
+    [duration, onComplete, onProgress]
+  );
 
   useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
-  }, [animate]);
+    if (!start) return;
 
-  const offset = circumference * (1 - progress / 100);
+    reqRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(reqRef.current);
+  }, [duration, onProgress, onComplete, start, animate]);
+
+  const dashOffset = circumference * (1 - progress / 100);
 
   return (
     <div className={styles.container}>
@@ -54,7 +65,11 @@ const ProgressCircle = () => {
             width="200%"
             height="200%"
           >
-            <feGaussianBlur stdDeviation="16" result="blurred" />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="16"
+              result="blurred"
+            />
             <feMerge>
               <feMergeNode in="blurred" />
               <feMergeNode in="SourceGraphic" />
@@ -62,7 +77,7 @@ const ProgressCircle = () => {
           </filter>
         </defs>
 
-        {/* background */}
+        {/* background rim */}
         <circle
           className={styles.bg}
           cx={center}
@@ -72,7 +87,7 @@ const ProgressCircle = () => {
           fill="none"
         />
 
-        {/* main progress */}
+        {/* progress arc */}
         <circle
           className={styles.progress}
           cx={center}
@@ -81,19 +96,21 @@ const ProgressCircle = () => {
           strokeWidth={strokeWidth}
           fill="none"
           strokeDasharray={circumference}
-          strokeDashoffset={offset}
+          strokeDashoffset={dashOffset}
+          strokeLinecap="round"
         />
 
-        {/* glow – now using SVG filter */}
+        {/* glow arc */}
         <circle
-          className={`${styles.glow} ${completed ? styles.stopped : ''}`}
+          className={`${styles.glow} ${done ? styles.stopped : ''}`}
           cx={center}
           cy={center}
           r={radius}
           strokeWidth={strokeWidth}
           fill="none"
           strokeDasharray={circumference}
-          strokeDashoffset={offset}
+          strokeDashoffset={dashOffset}
+          strokeLinecap="round"
           filter="url(#glowBlur)"
         />
       </svg>
@@ -101,6 +118,6 @@ const ProgressCircle = () => {
       <div className={styles.text}>{progress}%</div>
     </div>
   );
-};
+}
 
 export default ProgressCircle;

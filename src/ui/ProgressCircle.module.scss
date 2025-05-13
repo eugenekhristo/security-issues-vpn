@@ -2,6 +2,9 @@
   position: relative;
   width: 230px;
   max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .svg {
@@ -14,14 +17,14 @@
 
 .progress {
   stroke: #007aff;
-  transition: stroke-dashoffset 0.4s linear;
+  transition: stroke-dashoffset 0.25s linear;
   stroke-linecap: round;
 }
 
 .glow {
   stroke: #007aff;
   animation: pulse 1s ease-in-out infinite;
-  transition: stroke-dashoffset 0.4s linear;
+  transition: stroke-dashoffset 0.25s linear;
   stroke-linecap: round;
 }
 
@@ -32,13 +35,20 @@
 
 .text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  font-weight: bold;
-  color: white;
+  // top: 52%;
+  // left: 51%;
+  transform: translate(2px, 5px);
+  color: #fafcfc;
+  text-align: center;
+  font-family: 'Bitcrusher Variable';
+  font-size: 9rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 9rem */
+  letter-spacing: 0.09rem;
+  text-transform: uppercase;
   user-select: none;
+  font-stretch: 83%;
 }
 
 @keyframes pulse {
