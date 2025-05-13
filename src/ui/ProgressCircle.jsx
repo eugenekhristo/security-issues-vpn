@@ -17,7 +17,7 @@ function ProgressCircle({
   const center = size / 2;
   const radius = center - strokeWidth / 2;
   const circumference = 2 * Math.PI * radius;
-  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 2);
+  const easeOutCubic = useCallback((t) => 1 - Math.pow(1 - t, 2), []);
 
   const animate = useCallback(
     (ts) => {
@@ -35,7 +35,7 @@ function ProgressCircle({
         onComplete?.();
       }
     },
-    [duration, onComplete, onProgress]
+    [duration, onComplete, onProgress, easeOutCubic]
   );
 
   useEffect(() => {

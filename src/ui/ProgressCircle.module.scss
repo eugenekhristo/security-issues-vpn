@@ -19,6 +19,7 @@
   stroke: #007aff;
   transition: stroke-dashoffset 0.25s linear;
   stroke-linecap: round;
+  will-change: stroke-dashoffset;
 }
 
 .glow {
@@ -26,6 +27,7 @@
   animation: pulse 1s ease-in-out infinite;
   transition: stroke-dashoffset 0.25s linear;
   stroke-linecap: round;
+  will-change: stroke-dashoffset;
 }
 
 .stopped {
