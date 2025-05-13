@@ -29,7 +29,7 @@ function PulseOverlay({ onFinish }) {
     }, 2000);
 
     return () => clearInterval(timerID);
-  }, []);
+  }, [onFinish]);
 
   return createPortal(
     <div className="pulse-overlay">
