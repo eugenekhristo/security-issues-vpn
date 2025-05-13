@@ -540,9 +540,10 @@ ul {
   background-size: 86.4%;
   background-repeat: no-repeat;
   background-position: center 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  padding-bottom: 25.6rem;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: stretch;
 
   h2 {
     color: #fafcfc;
@@ -616,6 +617,7 @@ ul {
     align-items: flex-start;
     gap: 1rem;
     align-self: stretch;
+    margin-bottom: 2rem;
 
     .box {
       display: flex;
@@ -627,6 +629,7 @@ ul {
       background-color: #1f262e;
       outline: 3px solid #007aff00;
       outline-offset: -3px;
+      position: relative;
 
       .content {
         display: flex;
@@ -676,6 +679,13 @@ ul {
       }
 
       &.box--month {
+        .sale {
+          position: absolute;
+          height: 3rem;
+          top: -5px;
+          right: 13%;
+        }
+
         h4 {
           display: flex;
           align-items: center;
@@ -684,8 +694,265 @@ ul {
 
           .prev {
             font-weight: 400;
+            position: relative;
+
+            &::after {
+              content: '';
+              display: inline-block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 110%;
+              height: 2px;
+              background-color: #ff0069;
+              z-index: 2;
+            }
           }
         }
+      }
+    }
+  }
+
+  .secure-checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    .headline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-self: stretch;
+
+      .title {
+        color: #fff;
+        font-family: Poppins;
+        font-size: 1.4rem;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 100%; /* 1.4rem */
+      }
+
+      .label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        img {
+          width: 1.8rem;
+          height: 1.8rem;
+        }
+
+        span {
+          color: #30db5b;
+          text-align: right;
+          font-family: Poppins;
+          font-size: 1.2rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 100%; /* 1.2rem */
+        }
+      }
+    }
+
+    .providers {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      align-self: stretch;
+
+      img {
+        height: 2rem;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    padding: 4.8rem 1.6rem 2rem 1.6rem;
+    // padding: 2.4rem 1.6rem 2rem 1.6rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, #121212 21%);
+    // background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, #121212 15.4%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+
+      img {
+        height: 4.8rem;
+        mix-blend-mode: lighten;
+      }
+
+      .cta {
+        font-family: Poppins;
+
+        .off {
+          line-height: 100%;
+          font-style: italic;
+          font-size: 1.8rem;
+          font-weight: 700;
+          background: linear-gradient(
+            183deg,
+            #fff -1.04%,
+            #fff480 43.78%,
+            #ff9f1a 90.76%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        span {
+          color: #fff;
+          font-family: Poppins;
+          font-size: 1.2rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          line-height: 100%;
+        }
+      }
+
+      .countdown {
+        width: 6.2rem;
+        height: 2.4rem;
+        position: relative;
+
+        .decor {
+          position: absolute;
+          background-color: #ffd60a;
+          height: 100%;
+          width: 3.2rem;
+          top: 0;
+          border-radius: 8px;
+
+          &.decor--left {
+            left: 0;
+          }
+
+          &.decor--right {
+            right: 0;
+          }
+        }
+
+        .time {
+          color: #121212;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 1.8rem;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 100%; /* 1.8rem */
+          letter-spacing: -0.018rem;
+          position: absolute;
+          top: 53%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+
+          .dots {
+            transform: translateY(-1px);
+          }
+        }
+      }
+    }
+
+    .sub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      align-self: stretch;
+
+      .btn {
+        border: none;
+        cursor: pointer;
+        display: flex;
+        height: 5.6rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1.4rem;
+        background: #007aff;
+        color: #fafcfc;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 100%;
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        align-self: stretch;
+
+        img {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+
+        span {
+          color: rgba(250, 252, 252, 0.7);
+          font-family: Poppins;
+          font-size: 1.2rem;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 140%; /* 1.68rem */
+        }
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        opacity: 0.5;
+
+        a {
+          color: #c5d6d9;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 1.2rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        .divider {
+          width: 1px;
+          height: 1.2rem;
+          background-color: #c5d6d9;
+          opacity: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  body {
+    .step-4 .plans .box .content {
+      h4 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1.2rem;
       }
     }
   }
