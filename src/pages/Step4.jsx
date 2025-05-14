@@ -2,6 +2,37 @@ import { useState } from 'react';
 import BgBlur from '../ui/BgBlur';
 import CountdownTimer from '../ui/CountdownTimer';
 
+// https://api.guruvpn.com/payments/plans
+const response = {
+  plans: [
+    {
+      id: 'price_1Pb3gCBDD4xBLeqjlEBgIAx8',
+      name: '1 year subscription',
+      days: 365,
+      price: 69.99,
+    },
+    {
+      id: 'price_1Pb3g9BDD4xBLeqj7YyRthRj',
+      name: '1 month subscription',
+      days: 30,
+      price: 22.99,
+    },
+    {
+      id: 'price_1Pb3g5BDD4xBLeqjkp7P6urr',
+      name: '1 week subscription',
+      days: 7,
+      price: 9.99,
+    },
+  ],
+};
+
+//https://api.guruvpn.com/payments/new
+
+// {
+//   "email": "test@mail.com",
+//   "planId": "price_1OAuA2BDD4xBLeqjqZy2B6IR"
+// }
+
 function Step4() {
   const [activePlan, setActivePlan] = useState('week');
 
