@@ -584,9 +584,6 @@ ul {
   background-repeat: no-repeat;
   background-position: center 1rem;
   padding-bottom: 25.6rem;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: stretch;
 
   @supports (background-image: url('/img/step-4/globe-bg.webp')) {
     background-image: url('/img/step-4/globe-bg.webp');
@@ -1013,6 +1010,180 @@ ul {
 
       p {
         font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* ************************** STEP 5 ******************************* */
+
+.step-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('/img/step-4/globe-bg.png');
+
+  background-size: 86.4%;
+  background-repeat: no-repeat;
+  background-position: center -2.2rem;
+
+  @supports (background-image: url('/img/step-4/globe-bg.webp')) {
+    background-image: url('/img/step-4/globe-bg.webp');
+  }
+
+  @supports (background-image: url('/img/step-4/globe-bg.avif')) {
+    background-image: url('/img/step-4/globe-bg.avif');
+  }
+
+  .wrapper {
+    transform: translateY(-19%);
+
+    h2 {
+      color: #fafcfc;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 3.2rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      margin-bottom: 4.8rem;
+    }
+
+    .input-box {
+      margin-bottom: 3.2rem;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+
+      .input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        align-self: stretch;
+
+        label {
+          color: #fafcfc;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 1.4rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+
+          span {
+            color: rgba(250, 252, 252, 0.5);
+            font-family: Poppins;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+
+        input {
+          display: flex;
+          padding: 2rem 1.6rem;
+          align-items: center;
+          gap: 1rem;
+          align-self: stretch;
+          border-radius: 1.4rem;
+          background: #1f262e;
+          color: #fafcfc;
+          font-family: Poppins;
+          font-size: 1.6rem;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 100%; /* 1.6rem */
+          border: none;
+          height: 5.6rem;
+          outline: 2px solid #007aff00;
+          outline-offset: -2px;
+
+          &::placeholder,
+          &::-webkit-input-placeholder {
+            color: rgba(250, 252, 252, 0.4);
+            font-family: Poppins;
+            font-size: 1.6rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 100%; /* 1.6rem */
+          }
+
+          &:focus {
+            outline: 2px solid #007aff;
+          }
+        }
+      }
+
+      .sub {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        align-self: stretch;
+
+        img {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+
+        p {
+          color: rgba(250, 252, 252, 0.5);
+          font-family: Poppins;
+          font-size: 1.2rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 130%; /* 1.56rem */
+
+          a {
+            color: #1aa3ff;
+            font-family: Poppins;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 130%;
+          }
+        }
+      }
+    }
+
+    .btn {
+      border: none;
+      display: flex;
+      height: 5.6rem;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1.4rem;
+      background-color: #007aff;
+      color: #fafcfc;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      width: 100%;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -webkit-touch-callout: none;
+      transition: transform 200ms ease-out;
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      &.disabled {
+        background-color: rgba(128, 128, 128, 0.4);
+        color: rgba(250, 252, 252, 0.5);
+
+        &:active {
+          transform: none;
+        }
       }
     }
   }
