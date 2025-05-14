@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import BgBlur from '../ui/BgBlur';
 
+const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 function Step5() {
+  const [emailInput, setEmailInput] = useState('');
+  const isValidEmail = regex.test(emailInput);
+
   return (
     <div className="container step-5">
       <BgBlur backgroundColor={'#007AFF'} />
@@ -19,6 +25,8 @@ function Step5() {
               name="email"
               id="email"
               placeholder="Enter your email here"
+              onChange={(e) => setEmailInput(e.target.value)}
+              value={emailInput}
             />
           </div>
           <div className="sub">
@@ -38,7 +46,9 @@ function Step5() {
           </div>
         </div>
 
-        <button className="btn disabled">Continue</button>
+        <button className={`btn ${!isValidEmail && 'disabled'}`}>
+          Continue
+        </button>
       </div>
     </div>
   );
