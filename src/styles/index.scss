@@ -18,6 +18,26 @@
   transition: all 0.15s ease-in-out;
 }
 
+/* 1) Enable smooth/native scrolling on iOS */
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* 2) Hide scrollbar in WebKit browsers (Safari, Chrome Mobile) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* 3) Hide scrollbar in Firefox */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -879,13 +899,12 @@ ul {
 
       .btn {
         border: none;
-        cursor: pointer;
         display: flex;
         height: 5.6rem;
         justify-content: center;
         align-items: center;
         border-radius: 1.4rem;
-        background: #007aff;
+        background-color: #007aff;
         color: #fafcfc;
         text-align: center;
         font-family: Poppins;
@@ -894,6 +913,16 @@ ul {
         font-weight: 600;
         line-height: normal;
         width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-touch-callout: none;
+        transition: transform 200ms ease-out;
+
+        &:active {
+          transform: scale(0.95);
+        }
       }
 
       .info {

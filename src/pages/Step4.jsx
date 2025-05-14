@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import BgBlur from '../ui/BgBlur';
+import CountdownTimer from '../ui/CountdownTimer';
 
 function Step4() {
+  const [activePlan, setActivePlan] = useState('week');
+
   return (
     <div className="container step-4">
       <BgBlur backgroundColor={'#007AFF'} />
@@ -32,7 +36,10 @@ function Step4() {
       </ul>
 
       <div className="plans">
-        <div className="box box--week active">
+        <div
+          className={`box box--week ${activePlan === 'week' && 'active'}`}
+          onClick={() => setActivePlan('week')}
+        >
           <div className="content">
             <h4>Weekly $7.99</h4>
             <p>Just $1.14/day — flexible short-term option</p>
@@ -41,7 +48,10 @@ function Step4() {
           <div className="checkbox" />
         </div>
 
-        <div className="box box--month">
+        <div
+          className={`box box--month ${activePlan === 'month' && 'active'}`}
+          onClick={() => setActivePlan('month')}
+        >
           <img src="/img/step-4/profit.svg" alt="sale label" className="sale" />
           <div className="content">
             <h4>
@@ -86,9 +96,7 @@ function Step4() {
             <div className="decor decor--left" />
             <div className="decor decor--right" />
             <span className="time">
-              <p className="minutes">04</p>
-              <p className="dots">:</p>
-              <p className="seconds">59</p>
+              <CountdownTimer />
             </span>
           </div>
         </div>
@@ -103,9 +111,13 @@ function Step4() {
             </span>
           </div>
           <div className="links">
-            <a href="#">Privacy Policy</a>
+            <a href="https://guruvpn.com/policy" target="privacy">
+              Privacy Policy
+            </a>
             <div className="divider" />
-            <a href="#">Terms of Use</a>
+            <a href="https://guruvpn.com/terms" target="terms">
+              Terms of Use
+            </a>
           </div>
         </div>
       </footer>
