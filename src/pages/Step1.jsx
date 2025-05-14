@@ -25,11 +25,16 @@ function Step1() {
       </header>
 
       <main>
-        <img
-          src="/img/step-1/hero.png"
-          alt="man holding mobile phone with security issues elemnts floating around him"
-          className="hero-img"
-        />
+        <picture>
+          <source srcSet="./img/step-1/hero.avif" type="image/avif" />
+          <source srcSet="./img/step-1/hero.webp" type="image/webp" />
+          <source srcSet="./img/step-1/hero.png" type="image/png" />
+          <img
+            src="/img/step-1/hero.png"
+            alt="man holding mobile phone with security issues elemnts floating around him"
+            className="hero-img"
+          />
+        </picture>
 
         <ul>
           <li>

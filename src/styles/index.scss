@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Bitcrusher Variable';
-  src: url('/fonts/bitcrusher.otf');
+  src: url('/fonts/bitcrusher.otf') format('opentype');
   font-weight: 100 900;
   font-stretch: 50% 100%;
   font-display: swap;
@@ -93,6 +93,8 @@ ul {
 /* ************************** STEP 1 ******************************* */
 
 .step-1 {
+  padding-bottom: 15.4rem;
+
   header {
     margin-top: 2.3rem;
     margin-bottom: 1.5rem;
@@ -210,13 +212,12 @@ ul {
 
     .btn {
       border: none;
-      cursor: pointer;
       display: flex;
       height: 5.6rem;
       justify-content: center;
       align-items: center;
       border-radius: 1.4rem;
-      background: #007aff;
+      background-color: #007aff;
       color: #fafcfc;
       text-align: center;
       font-family: Poppins;
@@ -225,6 +226,16 @@ ul {
       font-weight: 600;
       line-height: normal;
       width: 100%;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -webkit-touch-callout: none;
+      transition: transform 200ms ease-out;
+
+      &:active {
+        transform: scale(0.95);
+      }
     }
   }
 }
@@ -313,6 +324,8 @@ ul {
 /* ************************** STEP 3 ******************************* */
 
 .step-3 {
+  padding-bottom: 11.2rem;
+
   header {
     display: flex;
     flex-direction: column;
@@ -534,13 +547,12 @@ ul {
 
     .btn {
       border: none;
-      cursor: pointer;
       display: flex;
       height: 5.6rem;
       justify-content: center;
       align-items: center;
       border-radius: 1.4rem;
-      background: #007aff;
+      background-color: #007aff;
       color: #fafcfc;
       text-align: center;
       font-family: Poppins;
@@ -549,6 +561,16 @@ ul {
       font-weight: 600;
       line-height: normal;
       width: 100%;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -webkit-touch-callout: none;
+      transition: transform 200ms ease-out;
+
+      &:active {
+        transform: scale(0.95);
+      }
     }
   }
 }
@@ -557,6 +579,7 @@ ul {
 
 .step-4 {
   background-image: url('/img/step-4/globe-bg.png');
+
   background-size: 86.4%;
   background-repeat: no-repeat;
   background-position: center 1rem;
@@ -564,6 +587,14 @@ ul {
   // display: flex;
   // flex-direction: column;
   // align-items: stretch;
+
+  @supports (background-image: url('/img/step-4/globe-bg.webp')) {
+    background-image: url('/img/step-4/globe-bg.webp');
+  }
+
+  @supports (background-image: url('/img/step-4/globe-bg.avif')) {
+    background-image: url('/img/step-4/globe-bg.avif');
+  }
 
   h2 {
     color: #fafcfc;

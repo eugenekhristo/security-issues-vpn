@@ -12,7 +12,11 @@ function Step4() {
       <h2>We recommend...</h2>
 
       <div className="logo">
-        <img src="/img/step-4/guru.png" alt="logo" />
+        <picture>
+          <source srcSet="./img/step-4/guru.webp" type="image/webp" />
+          <source srcSet="./img/step-4/guru.png" type="image/png" />
+          <img src="/img/step-4/guru.png" alt="logo" />
+        </picture>
         <h4>VPN Guru</h4>
       </div>
 
@@ -88,7 +92,12 @@ function Step4() {
 
       <footer>
         <div className="timer">
-          <img src="/img/step-4/gift.png" alt="gift" />
+          <picture>
+            <source srcSet="./img/step-4/gift.webp" type="image/webp" />
+            <source srcSet="./img/step-4/gift.png" type="image/png" />
+            <img src="/img/step-4/gift.png" alt="gift" />
+          </picture>
+
           <span className="cta">
             <span className="off">40% OFF</span> <span>expires in</span>
           </span>
