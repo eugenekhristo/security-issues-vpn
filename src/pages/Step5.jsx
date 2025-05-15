@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BgBlur from '../ui/BgBlur';
 import { usePlans } from '../contexts/PlansContext';
 import { postPlan } from '../services/postPlan';
@@ -18,11 +18,23 @@ function Step5() {
     return acc;
   }, '');
 
-  console.log(planId);
-
   function handleButtonClick() {
+    localStorage.setItem(
+      'userSelection',
+      JSON.stringify({ email: emailInput, activePlanName })
+    );
+
     postPlan(emailInput, planId, dispatch);
   }
+
+  useEffect(() => {
+    const userSelection = localStorage.getItem('userSelection');
+
+    if (userSelection) {
+      const { email } = JSON.parse(userSelection);
+      setEmailInput(email);
+    }
+  }, []);
 
   return (
     <>

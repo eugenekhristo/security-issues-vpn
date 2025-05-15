@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BgBlur from '../ui/BgBlur';
 import CountdownTimer from '../ui/CountdownTimer';
 import { usePlans } from '../contexts/PlansContext';
@@ -6,7 +6,11 @@ import { useNavigate } from 'react-router';
 
 function Step4() {
   const [activePlan, setActivePlan] = useState('week');
-  const { plans, setActivePlan: setActivePlanContext } = usePlans();
+  const {
+    plans,
+    setActivePlan: setActivePlanContext,
+    activePlanName,
+  } = usePlans();
   const navigate = useNavigate();
 
   const {
@@ -54,6 +58,10 @@ function Step4() {
     setActivePlanContext(activePlan);
     navigate('/step-5');
   }
+
+  useEffect(() => {
+    setActivePlan(activePlanName);
+  }, [activePlanName]);
 
   return (
     <div className="container step-4">

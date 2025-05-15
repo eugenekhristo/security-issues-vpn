@@ -35,6 +35,14 @@ function PlansProvider({ children }) {
   );
 
   useEffect(() => {
+    const userSelection = localStorage.getItem('userSelection');
+    if (userSelection) {
+      const { activePlanName } = JSON.parse(userSelection);
+      dispatch({ type: 'plans/setActive', payload: activePlanName });
+    } else {
+      dispatch({ type: 'plans/setActive', payload: 'week' });
+    }
+
     async function fetchPlans() {
       const res = await fetch(GET_URL);
       const { plans } = await res.json();
