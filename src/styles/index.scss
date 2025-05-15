@@ -1021,22 +1021,22 @@ ul {
   align-items: center;
   justify-content: center;
 
-  background-image: url('/img/step-4/globe-bg.png');
+  // background-image: url('/img/step-4/globe-bg.png');
 
-  background-size: 86.4%;
-  background-repeat: no-repeat;
-  background-position: center -5.6rem;
+  // background-size: 86.4%;
+  // background-repeat: no-repeat;
+  // background-position: center -5.6rem;
 
-  @supports (background-image: url('/img/step-4/globe-bg.webp')) {
-    background-image: url('/img/step-4/globe-bg.webp');
-  }
+  // @supports (background-image: url('/img/step-4/globe-bg.webp')) {
+  //   background-image: url('/img/step-4/globe-bg.webp');
+  // }
 
-  @supports (background-image: url('/img/step-4/globe-bg.avif')) {
-    background-image: url('/img/step-4/globe-bg.avif');
-  }
+  // @supports (background-image: url('/img/step-4/globe-bg.avif')) {
+  //   background-image: url('/img/step-4/globe-bg.avif');
+  // }
 
   .wrapper {
-    transform: translateY(-10%);
+    transform: translateY(-15%);
 
     h2 {
       color: #fafcfc;
@@ -1180,3 +1180,194 @@ ul {
 }
 
 /* ************************** SUCCESS ******************************* */
+
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    transform: translateY(-15%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+
+    .email {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      align-self: stretch;
+
+      img {
+        width: 8rem;
+        height: 8rem;
+      }
+
+      .copy_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        align-self: stretch;
+
+        h2 {
+          color: #fff;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 2.4rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 100%; /* 2.4rem */
+          text-transform: capitalize;
+        }
+
+        .copy {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          align-self: stretch;
+
+          .plain {
+            color: rgba(224, 237, 250, 0.7);
+            text-align: center;
+            font-family: Poppins;
+            font-size: 1.4rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 2.1rem */
+          }
+
+          .user_email {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+
+            .emoji {
+              color: #fff;
+              text-align: center;
+              font-family: Poppins;
+              font-size: 2rem;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 100%; /* 2rem */
+            }
+
+            .text {
+              color: #1aa3ff;
+              text-align: center;
+              font-family: Poppins;
+              font-size: 1.4rem;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 150%; /* 2.1rem */
+            }
+          }
+        }
+      }
+    }
+
+    .appstore {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+
+      .copy {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        align-self: stretch;
+
+        .text {
+          color: rgba(224, 237, 250, 0.7);
+          font-family: Poppins;
+          font-size: 1.3rem;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 150%; /* 1.95rem */
+        }
+
+        .emoji {
+          color: #fff;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 2rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100%; /* 2rem */
+        }
+      }
+
+      a {
+        img {
+          height: 4.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .success {
+    .wrapper {
+      gap: 4.8rem;
+
+      .email {
+        gap: 2.4rem;
+
+        img {
+          width: 8.8rem;
+          height: 8.8rem;
+        }
+
+        .copy_wrapper {
+          gap: 1.6rem;
+
+          h2 {
+            font-size: 2.8rem;
+          }
+
+          .copy {
+            .plain {
+              font-size: 1.6rem;
+            }
+
+            .user_email {
+              .emoji {
+                font-size: 2.4rem;
+              }
+
+              .text {
+                font-size: 1.6rem;
+              }
+            }
+          }
+        }
+      }
+
+      .appstore {
+        gap: 1.6rem;
+
+        .copy {
+          gap: 6px;
+
+          .text {
+            font-size: 1.4rem;
+          }
+
+          .emoji {
+            font-size: 2.4rem;
+          }
+        }
+
+        a {
+          img {
+            height: 5.6rem;
+          }
+        }
+      }
+    }
+  }
+}
