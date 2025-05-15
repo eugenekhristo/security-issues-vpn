@@ -1025,7 +1025,7 @@ ul {
 
   background-size: 86.4%;
   background-repeat: no-repeat;
-  background-position: center -3.2rem;
+  background-position: center -5.6rem;
 
   @supports (background-image: url('/img/step-4/globe-bg.webp')) {
     background-image: url('/img/step-4/globe-bg.webp');
@@ -1044,9 +1044,9 @@ ul {
       font-family: Poppins;
       font-size: 3.2rem;
       font-style: normal;
-      font-weight: 700;
-      line-height: 120%;
-      margin-bottom: 4.8rem;
+      font-weight: 600;
+      line-height: 130%; /* 4.16rem */
+      margin-bottom: 4rem;
     }
 
     .input-box {
@@ -1072,15 +1072,6 @@ ul {
           font-style: normal;
           font-weight: 500;
           line-height: normal;
-
-          span {
-            color: rgba(250, 252, 252, 0.5);
-            font-family: Poppins;
-            font-size: 1.2rem;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-          }
         }
 
         input {
@@ -1135,7 +1126,7 @@ ul {
           font-size: 1.2rem;
           font-style: normal;
           font-weight: 400;
-          line-height: 130%; /* 1.56rem */
+          line-height: 140%; /* 1.56rem */
 
           a {
             color: #1aa3ff;
@@ -1143,7 +1134,7 @@ ul {
             font-size: 1.2rem;
             font-style: normal;
             font-weight: 600;
-            line-height: 130%;
+            line-height: 140%;
           }
         }
       }
@@ -1187,3 +1178,5 @@ ul {
     }
   }
 }
+
+/* ************************** SUCCESS ******************************* */

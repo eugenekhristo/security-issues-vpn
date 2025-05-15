@@ -5,6 +5,7 @@ import Step2 from './pages/Step2';
 import Step3 from './pages/Step3';
 import Step4 from './pages/Step4';
 import Step5 from './pages/Step5';
+import Success from './pages/Success';
 import { PlansProvider } from './contexts/PlansContext';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/step-3" element={<Step3 />} />
         <Route path="/step-4" element={<Step4 />} />
         <Route path="/step-5" element={<Step5 />} />
+        <Route path="/success" element={<Success />} />
         <Route path="*" element={<Navigate to="/step-1" replace />} />
       </Routes>
     </PlansProvider>

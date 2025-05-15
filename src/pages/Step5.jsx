@@ -43,19 +43,17 @@ function Step5() {
         <BgBlur backgroundColor={'#007AFF'} />
 
         <div className="wrapper">
-          <h2>Enter your email</h2>
+          <h2>Where should we send your app link?</h2>
 
           <div className="input-box">
             <div className="input">
-              <label htmlFor="email">
-                Email address <span>(required)</span>
-              </label>
+              <label htmlFor="email">Your email address</label>
               <input
                 type="email"
                 required
                 name="email"
                 id="email"
-                placeholder="Enter your email here"
+                placeholder="you@example.com"
                 onChange={(e) => setEmailInput(e.target.value)}
                 value={emailInput}
               />
@@ -64,8 +62,7 @@ function Step5() {
               <img src="/img/step-5/lock.svg" alt="lock-icon" />
               <p>
                 We respect your privacy and we are committed to protecting your
-                personal data. By continuing you indicate that you’ve read and
-                agree to our{' '}
+                personal data. By continuing, you agree to our{' '}
                 <a href="https://guruvpn.com/terms" target="_blank">
                   Terms of Use
                 </a>{' '}
