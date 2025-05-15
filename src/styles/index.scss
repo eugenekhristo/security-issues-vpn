@@ -48,7 +48,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  color: #fff;
+  color: #fafcfc;
   overflow-x: hidden;
   font-size: 1.6rem;
   min-height: 100dvh;
@@ -775,7 +775,7 @@ ul {
       align-self: stretch;
 
       .title {
-        color: #fff;
+        color: #fafcfc;
         font-family: Poppins;
         font-size: 1.4rem;
         font-style: italic;
@@ -864,7 +864,7 @@ ul {
         }
 
         span {
-          color: #fff;
+          color: #fafcfc;
           font-family: Poppins;
           font-size: 1.2rem;
           font-style: normal;
@@ -1026,7 +1026,7 @@ ul {
 
   background-size: 86.4%;
   background-repeat: no-repeat;
-  background-position: center -2.2rem;
+  background-position: center -3.2rem;
 
   @supports (background-image: url('/img/step-4/globe-bg.webp')) {
     background-image: url('/img/step-4/globe-bg.webp');
@@ -1037,7 +1037,7 @@ ul {
   }
 
   .wrapper {
-    transform: translateY(-19%);
+    transform: translateY(-10%);
 
     h2 {
       color: #fafcfc;

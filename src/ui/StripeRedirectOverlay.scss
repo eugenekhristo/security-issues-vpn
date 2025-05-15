@@ -1,0 +1,119 @@
+.payment_spinner {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(16px);
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    align-items: center;
+    transform: translateY(-5.6rem);
+  }
+
+  p {
+    font-style: italic;
+    color: rgba(250, 252, 252, 0.7);
+  }
+
+  .vertical-centered-box {
+    width: 12rem;
+    height: 12rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 5.6rem;
+    }
+  }
+
+  .loader-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .loader-line-mask {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    overflow: hidden;
+    transform-origin: 60px 60px;
+    -webkit-mask-image: -webkit-linear-gradient(
+      top,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    );
+    animation: rotate 1.2s infinite linear;
+    .loader-line {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1);
+    }
+  }
+
+  // #particles-background,
+  // #particles-foreground {
+  //   left: -51%;
+  //   top: -51%;
+  //   width: 202%;
+  //   height: 202%;
+  //   transform: scale3d(0.5, 0.5, 1);
+  // }
+
+  // #particles-background {
+  //   background: color.mix(#3f3251, #002025, 70%);
+  //   background-image: -moz-linear-gradient(45deg, #3f3251 2%, #002025 100%);
+  //   background-image: -webkit-linear-gradient(
+  //     45deg,
+  //     #3f3251 2%,
+  //     #002025 100%
+  //   );
+  //   background-image: linear-gradient(45deg, #3f3251 2%, #002025 100%);
+  // }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

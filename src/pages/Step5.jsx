@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import BgBlur from '../ui/BgBlur';
+import { usePlans } from '../contexts/PlansContext';
+import { postPlan } from '../services/postPlan';
+import StripeRedirectOverlay from '../ui/StripeRedirectOverlay';
 
 const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -7,50 +10,67 @@ function Step5() {
   const [emailInput, setEmailInput] = useState('');
   const isValidEmail = regex.test(emailInput);
 
+  const { plans, activePlanName, isLoading, error, dispatch } = usePlans();
+  const planId = plans.reduce((acc, cur) => {
+    if (cur.shortName === activePlanName) {
+      return cur.id;
+    }
+  }, '');
+
+  function handleButtonClick() {
+    postPlan(emailInput, planId, dispatch);
+  }
+
   return (
-    <div className="container step-5">
-      <BgBlur backgroundColor={'#007AFF'} />
+    <>
+      {isLoading && !error && <StripeRedirectOverlay />}
+      <div className="container step-5">
+        <BgBlur backgroundColor={'#007AFF'} />
 
-      <div className="wrapper">
-        <h2>Enter your email</h2>
+        <div className="wrapper">
+          <h2>Enter your email</h2>
 
-        <div className="input-box">
-          <div className="input">
-            <label htmlFor="email">
-              Email address <span>(required)</span>
-            </label>
-            <input
-              type="email"
-              required
-              name="email"
-              id="email"
-              placeholder="Enter your email here"
-              onChange={(e) => setEmailInput(e.target.value)}
-              value={emailInput}
-            />
+          <div className="input-box">
+            <div className="input">
+              <label htmlFor="email">
+                Email address <span>(required)</span>
+              </label>
+              <input
+                type="email"
+                required
+                name="email"
+                id="email"
+                placeholder="Enter your email here"
+                onChange={(e) => setEmailInput(e.target.value)}
+                value={emailInput}
+              />
+            </div>
+            <div className="sub">
+              <img src="/img/step-5/lock.svg" alt="lock-icon" />
+              <p>
+                We respect your privacy and we are committed to protecting your
+                personal data. By continuing you indicate that you’ve read and
+                agree to our{' '}
+                <a href="https://guruvpn.com/terms" target="_blank">
+                  Terms of Use
+                </a>{' '}
+                and{' '}
+                <a href="https://guruvpn.com/policy" target="_blank">
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
           </div>
-          <div className="sub">
-            <img src="/img/step-5/lock.svg" alt="lock-icon" />
-            <p>
-              We respect your privacy and we are committed to protecting your
-              personal data. By continuing you indicate that you’ve read and
-              agree to our{' '}
-              <a href="https://guruvpn.com/terms" target="terms">
-                Terms of Use
-              </a>{' '}
-              and{' '}
-              <a href="https://guruvpn.com/policy" target="privacy">
-                Privacy Policy
-              </a>
-            </p>
-          </div>
+
+          <button
+            className={`btn ${!isValidEmail && 'disabled'}`}
+            onClick={handleButtonClick}
+          >
+            Continue
+          </button>
         </div>
-
-        <button className={`btn ${!isValidEmail && 'disabled'}`}>
-          Continue
-        </button>
       </div>
-    </div>
+    </>
   );
 }
 

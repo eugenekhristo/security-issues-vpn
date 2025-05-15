@@ -1,40 +1,59 @@
 import { useState } from 'react';
 import BgBlur from '../ui/BgBlur';
 import CountdownTimer from '../ui/CountdownTimer';
-
-// https://api.guruvpn.com/payments/plans
-const response = {
-  plans: [
-    {
-      id: 'price_1Pb3gCBDD4xBLeqjlEBgIAx8',
-      name: '1 year subscription',
-      days: 365,
-      price: 69.99,
-    },
-    {
-      id: 'price_1Pb3g9BDD4xBLeqj7YyRthRj',
-      name: '1 month subscription',
-      days: 30,
-      price: 22.99,
-    },
-    {
-      id: 'price_1Pb3g5BDD4xBLeqjkp7P6urr',
-      name: '1 week subscription',
-      days: 7,
-      price: 9.99,
-    },
-  ],
-};
-
-//https://api.guruvpn.com/payments/new
-
-// {
-//   "email": "test@mail.com",
-//   "planId": "price_1OAuA2BDD4xBLeqjqZy2B6IR"
-// }
+import { usePlans } from '../contexts/PlansContext';
+import { useNavigate } from 'react-router';
 
 function Step4() {
   const [activePlan, setActivePlan] = useState('week');
+  const { plans, setActivePlan: setActivePlanContext } = usePlans();
+  const navigate = useNavigate();
+
+  const {
+    weekPrice,
+    weekDailyPrice,
+    monthPrice,
+    monthPriceOld,
+    monthDailyPrice,
+  } = plans.reduce(
+    (acc, cur) => {
+      if (cur.shortName === 'week') {
+        return {
+          ...acc,
+          weekPrice: cur.price,
+          weekDailyPrice: (cur.price / cur.days).toFixed(2),
+        };
+      }
+      return {
+        ...acc,
+        monthPrice: cur.price,
+        monthDailyPrice: (cur.price / cur.days).toFixed(2),
+        monthPriceOld: Math.ceil(cur.price / (1 - cur.price / 100)).toFixed(0),
+      };
+    },
+    {
+      weekPrice: 0,
+      weekDailyPrice: 0,
+      monthPrice: 0,
+      monthPriceOld: 0,
+      monthDailyPrice: 0,
+    }
+  );
+
+  function handleSelectPlan(e) {
+    const { classList } = e.target.closest('.box');
+
+    if (classList.contains('box--week')) {
+      setActivePlan('week');
+    } else {
+      setActivePlan('month');
+    }
+  }
+
+  function handleButtonClick() {
+    setActivePlanContext(activePlan);
+    navigate('/step-5');
+  }
 
   return (
     <div className="container step-4">
@@ -73,11 +92,11 @@ function Step4() {
       <div className="plans">
         <div
           className={`box box--week ${activePlan === 'week' && 'active'}`}
-          onClick={() => setActivePlan('week')}
+          onClick={handleSelectPlan}
         >
           <div className="content">
-            <h4>Weekly $7.99</h4>
-            <p>Just $1.14/day — flexible short-term option</p>
+            <h4>Weekly ${weekPrice}</h4>
+            <p>Just ${weekDailyPrice}/day — flexible short-term option</p>
           </div>
 
           <div className="checkbox" />
@@ -85,16 +104,16 @@ function Step4() {
 
         <div
           className={`box box--month ${activePlan === 'month' && 'active'}`}
-          onClick={() => setActivePlan('month')}
+          onClick={handleSelectPlan}
         >
           <img src="/img/step-4/profit.svg" alt="sale label" className="sale" />
           <div className="content">
             <h4>
               <span>Monthly</span>
-              <span className="prev">$56</span>
-              <span>$35.99</span>
+              <span className="prev">${monthPriceOld}</span>
+              <span>${monthPrice}</span>
             </h4>
-            <p>Just $1.20/day — save more long term</p>
+            <p>Just ${monthDailyPrice}/day — save more long term</p>
           </div>
 
           <div className="checkbox" />
@@ -142,7 +161,9 @@ function Step4() {
         </div>
 
         <div className="sub">
-          <button className="btn">Activate My Protection</button>
+          <button className="btn" onClick={handleButtonClick}>
+            Activate My Protection
+          </button>
           <div className="info">
             <img src="/img/step-4/shield-icon.svg" alt="shield-icon" />
             <span>
@@ -151,11 +172,11 @@ function Step4() {
             </span>
           </div>
           <div className="links">
-            <a href="https://guruvpn.com/policy" target="privacy">
+            <a href="https://guruvpn.com/policy" target="_blank">
               Privacy Policy
             </a>
             <div className="divider" />
-            <a href="https://guruvpn.com/terms" target="terms">
+            <a href="https://guruvpn.com/terms" target="_blank">
               Terms of Use
             </a>
           </div>
