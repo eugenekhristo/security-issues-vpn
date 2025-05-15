@@ -15,7 +15,10 @@ function Step5() {
     if (cur.shortName === activePlanName) {
       return cur.id;
     }
+    return acc;
   }, '');
+
+  console.log(planId);
 
   function handleButtonClick() {
     postPlan(emailInput, planId, dispatch);
