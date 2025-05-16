@@ -21,7 +21,10 @@ function Step5() {
   function handleButtonClick() {
     localStorage.setItem(
       'userSelection',
-      JSON.stringify({ email: emailInput, activePlanName })
+      JSON.stringify({
+        email: emailInput,
+        activePlanName,
+      })
     );
 
     postPlan(emailInput, planId, dispatch);

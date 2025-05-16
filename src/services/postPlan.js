@@ -9,6 +9,7 @@ async function postPlan(email, planId, dispatch) {
   const data = {
     email,
     planId,
+    source: 'ob-security-issues',
   };
 
   try {
