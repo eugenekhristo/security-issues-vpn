@@ -19,6 +19,8 @@ function Step5() {
   }, '');
 
   function handleButtonClick() {
+    if (!isValidEmail) return;
+
     localStorage.setItem(
       'userSelection',
       JSON.stringify({
@@ -64,8 +66,8 @@ function Step5() {
             <div className="sub">
               <img src="/img/step-5/lock.svg" alt="lock-icon" />
               <p>
-                We respect your privacy and we are committed to protecting your
-                personal data. By continuing, you agree to our{' '}
+                We respect your privacy and we are committed to protecting your personal data. By continuing, you agree
+                to our{' '}
                 <a href="https://guruvpn.com/terms" target="_blank">
                   Terms of Use
                 </a>{' '}
@@ -77,10 +79,7 @@ function Step5() {
             </div>
           </div>
 
-          <button
-            className={`btn ${!isValidEmail && 'disabled'}`}
-            onClick={handleButtonClick}
-          >
+          <button className={`btn ${!isValidEmail && 'disabled'}`} onClick={handleButtonClick}>
             Continue
           </button>
         </div>
