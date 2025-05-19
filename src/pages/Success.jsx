@@ -1,6 +1,9 @@
+import { useSearchParams } from 'react-router';
 import BgBlur from '../ui/BgBlur';
 
 function Success() {
+  const [serchParams] = useSearchParams();
+
   return (
     <div className="container success">
       <BgBlur backgroundColor={'#007AFF'} />
@@ -13,7 +16,7 @@ function Success() {
               <span className="plain">We've emailed you the download link</span>
               <div className="user_email">
                 <span className="emoji">📩</span>
-                <span className="text">example@domain.com</span>
+                <span className="text">{serchParams.get('email')}</span>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
 const GET_URL = 'https://api.guruvpn.com/payments/plans';
+// const GET_URL = 'https://dev-api.guruvpn.com/payments/plans';
 
 const PlansContext = createContext();
 
@@ -29,10 +30,7 @@ function reducer(state, { type, payload }) {
 }
 
 function PlansProvider({ children }) {
-  const [{ plans, activePlanName, isLoading, error }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ plans, activePlanName, isLoading, error }, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     const userSelection = localStorage.getItem('userSelection');
@@ -48,10 +46,7 @@ function PlansProvider({ children }) {
       const { plans } = await res.json();
       const distilledPlans = plans.reduce((acc, cur) => {
         if (cur.days === 365) return acc;
-        return [
-          ...acc,
-          { ...cur, shortName: cur.days === 30 ? 'month' : 'week' },
-        ];
+        return [...acc, { ...cur, shortName: cur.days === 30 ? 'month' : 'week' }];
       }, []);
 
       dispatch({ type: 'plans/loaded', payload: distilledPlans });
@@ -84,9 +79,7 @@ function usePlans() {
   const value = useContext(PlansContext);
 
   if (value === undefined) {
-    throw new Error(
-      'PlansContext cannot be accessed outside of the CitiesProvider'
-    );
+    throw new Error('PlansContext cannot be accessed outside of the CitiesProvider');
   }
 
   return value;

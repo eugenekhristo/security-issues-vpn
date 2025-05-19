@@ -6,6 +6,8 @@ import StripeRedirectOverlay from '../ui/StripeRedirectOverlay';
 
 const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+// https://safeinternetassociation.com/success?order=completed&email=eugene@test.com&session=cs_test_a10Ob5lJXsZbuvFHjoIelFrTr6Ff9JwByuyaTDhTfOIyxuOgkDgU0J6G1g
+
 function Step5() {
   const [emailInput, setEmailInput] = useState('');
   const isValidEmail = regex.test(emailInput);
