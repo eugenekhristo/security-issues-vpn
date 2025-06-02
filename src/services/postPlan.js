@@ -3,14 +3,16 @@
 //   "planId": "price_1OAuA2BDD4xBLeqjqZy2B6IR"
 // }
 
-const POST_URL = 'https://api.guruvpn.com/payments/new';
-// const POST_URL = 'https://dev-api.guruvpn.com/payments/new';
+// const POST_URL = 'https://api.guruvpn.com/payments/new';
+const POST_URL = 'https://dev-api.guruvpn.com/payments/new';
 
-async function postPlan(email, planId, dispatch) {
+async function postPlan(email, planId, dispatch, subId, pid) {
   const data = {
     email,
     planId,
     source: 'ob-security-issues',
+    subId,
+    pid,
   };
 
   try {

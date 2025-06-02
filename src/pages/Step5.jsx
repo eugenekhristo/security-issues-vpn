@@ -10,6 +10,8 @@ const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function Step5() {
   const [emailInput, setEmailInput] = useState('');
+  const [subid, setSubid] = useState('');
+  const [pid, setPid] = useState('');
   const isValidEmail = regex.test(emailInput);
 
   const { plans, activePlanName, isLoading, error, dispatch } = usePlans();
@@ -31,15 +33,22 @@ function Step5() {
       })
     );
 
-    postPlan(emailInput, planId, dispatch);
+    postPlan(emailInput, planId, dispatch, subid, pid);
   }
 
   useEffect(() => {
     const userSelection = localStorage.getItem('userSelection');
+    const keitaroParams = localStorage.getItem('keitaro');
 
     if (userSelection) {
       const { email } = JSON.parse(userSelection);
       setEmailInput(email);
+    }
+
+    if (keitaroParams) {
+      const { subid, pid } = JSON.parse(keitaroParams);
+      setSubid(subid);
+      setPid(pid);
     }
   }, []);
 

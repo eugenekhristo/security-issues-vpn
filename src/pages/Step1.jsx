@@ -1,12 +1,23 @@
-import { useNavigate } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
 import BgBlur from '../ui/BgBlur';
+import { useEffect } from 'react';
 
 function Step1() {
   const navigate = useNavigate();
+  const [serchParams] = useSearchParams();
 
   function handleClick() {
     navigate('/step-2');
   }
+
+  // https://safeinternetassociation.com/step-1?subid={subid}&pid=trafficjunky
+
+  useEffect(() => {
+    const subid = serchParams.get('subid');
+    const pid = serchParams.get('pid');
+
+    localStorage.setItem('keitaro', JSON.stringify({ subid, pid }));
+  }, [serchParams]);
 
   return (
     <div className="container step-1">

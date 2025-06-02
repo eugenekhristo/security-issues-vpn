@@ -27,7 +27,7 @@ function Success() {
             <span className="text">Or simply download it below</span>
             <span className="emoji">👇</span>
           </div>
-          <a href="#">
+          <a href={serchParams.get('deeplink_url')}>
             <img src="/img/success/appstore.png" alt="download on appstore" />
           </a>
         </div>

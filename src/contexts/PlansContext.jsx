@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
-const GET_URL = 'https://api.guruvpn.com/payments/plans';
-// const GET_URL = 'https://dev-api.guruvpn.com/payments/plans';
+// const GET_URL = 'https://api.guruvpn.com/payments/plans';
+const GET_URL = 'https://dev-api.guruvpn.com/payments/plans';
 
 const PlansContext = createContext();
 
